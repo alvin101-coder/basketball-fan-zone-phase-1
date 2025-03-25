@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+header{
+    /* background-color: #333; */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    background-image: url(../assets/NBA\ National\ Basketball\ Association\ USA\ Basketball\ NBA\ Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+header h1{
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+#player-container {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.player-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#comment-form {
+    margin-top: 2opx;
+}
+
+#comment-input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button{
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px, 20px;
+    cursor: pointer;
+}
+
+#comment-list{
+    list-style: none;
+    padding: 0;
+}
