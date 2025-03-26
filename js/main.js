@@ -20,9 +20,9 @@ const displayPlayers = (players, containerId) => {
         playerCard.className = 'player-card';
         playerCard.innerHTML = `
         <img src="${player.image}" alt="${player.first_name} ${player.last_name}" class="player-image">
-        <h3>${players.first_name} ${player.last_name}</h3>
+        <h3>${player.first_name} ${player.last_name}</h3>
         <p>Position: ${player.position || 'N/A'}</p>
-        <p>Jersey Number: ${player.jersey_number}</p>
+        <p>Jersey Number: ${player.Jersey_number}</p>
         `;
         container.appendChild(playerCard);
     });

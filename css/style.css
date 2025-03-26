@@ -37,6 +37,23 @@ main {
     padding: 20px;
 }
 
+#celtics-container{
+    background-image: url(../assets/celtics-logo.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#bucks-containers{
+    background-image:url(../assets/milwaukee\ bucks-logo.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
 #celtics-players, #bucks-players{
     margin-bottom: 20px;
 }
@@ -48,9 +65,9 @@ main {
 }
 
 .player-card {
-    border: 1px solid #ccc;
+    border:  1px solid #ccc;
     padding: 10px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 5px;
     text-align: center;
 }
