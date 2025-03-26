@@ -40,7 +40,14 @@
       "team": "Celtics",
       "position": "Center",
       "Jersey_number": 8,
-      "image": "assets/Kristaps  Porzingis.jpeg"
+      "image": "assets/Kristaps  Porzingis.jpeg",
+      "stats": {
+        "points_per_game": 20.5,
+        "rebounds_per_game": 8.4,
+        "assists_per_game": 1.5,
+        "steals_per_game": 0.6,
+        "blocks_per_game": 1.9
+      }
     },
     {
       "id": "4",
