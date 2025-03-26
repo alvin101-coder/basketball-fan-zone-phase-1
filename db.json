@@ -1,0 +1,68 @@
+{
+    "players":[
+        {
+            "id":1,
+            "first_name":"Jayson",
+            "last_name":"Tatum",
+            "team":"Celtics",
+            "position":"Forward",
+            "Jersey_number":0,
+            "image":"assets/Jayson Tatum and Marcus Smart FACE TO FACE Trae Young on this game today_ Injury Report for Celtics….jpeg"
+        },
+        {
+            "id": 2,
+            "first_name": "Jaylen",
+            "last_name": "Brown",
+            "team": "Celtics",
+            "position": "Guard",
+            "Jersey_number": 7,
+            "image":
+        },
+        {
+            "id": 3,
+            "first_name": "Kristaps",
+            "last_name": "Porzingis",
+            "team": "Celtics",
+            "position": "Center",
+            "Jersey_number": 8,
+            "image":
+        },
+        {
+            "id": 4,
+            "first_name": "Giannis",
+            "last_name": "Lillard",
+            "team": "Bucks",
+            "position": "Forward",
+            "Jersey_number": 34,
+            "image":
+        },
+        {
+            "id":5,
+            "first_name": "Damian",
+            "last_name": "Lillard",
+            "team": "Bucks",
+            "position": "Guard",
+            "Jersey_number": 0,
+            "image":
+        },
+        {
+            "id": 6,
+            "first_name": "Brook",
+            "last_name": "Lopez",
+            "team":"Bucks",
+            "position": "Center",
+            "Jersey_number": 11,
+            "image":
+        },
+        {
+            "id": 7,
+            "first_name": "Bobby",
+            "last_name": "Portis",
+            "team":"Bucks",
+            "position": "Forward",
+            "Jersey_number": 9,
+            "image":
+        }
+    ],
+    "comments": []
+}

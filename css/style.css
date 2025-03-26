@@ -7,7 +7,6 @@ body {
 }
 
 header{
-    /* background-color: #333; */
     color: white;
     padding: 20px;
     text-align: center;
@@ -31,13 +30,18 @@ nav ul {
 nav a{
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
 main {
     padding: 20px;
 }
 
-#player-container {
+#celtics-players, #bucks-players{
+    margin-bottom: 20px;
+}
+
+#celtics-players, #bucks-players{
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -49,6 +53,13 @@ main {
     background-color: #fff;
     border-radius: 5px;
     text-align: center;
+}
+
+.player-image{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 #comment-form {
