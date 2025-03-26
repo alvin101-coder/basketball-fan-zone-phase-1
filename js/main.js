@@ -48,19 +48,18 @@ const displayPlayerStats = (player) => {
 
   document.body.appendChild(statsModal);
 
-  // Close the modal
+ 
   document.getElementById('close-stats').addEventListener('click', () => {
     document.body.removeChild(statsModal);
   });
 };
 
-// Add click events to player cards
 const addClickEventToPlayerCards = (players) => {
-  players.forEach(player => {
-    const playerCard = document.getElementById(`player-${player.id}`);
-    playerCard.addEventListener('click', () => displayPlayerStats(player));
-  });
-};
+    players.forEach(player => {
+      const playerCard = document.getElementById(`player-${player.id}`);
+      playerCard.addEventListener('click', () => displayPlayerStats(player));
+    });
+  };
 
 const addComment = (commentText) => {
     fetch('http://localhost:3000/comments', {
