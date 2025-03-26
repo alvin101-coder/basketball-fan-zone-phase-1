@@ -29,6 +29,26 @@ const displayPlayers = (players, containerId) => {
     });
 };
 
+const displayPlayerStats = (player) => {
+    const statsModal = document.createElement('div');
+    statsModal.className = 'player-stats-modal';
+    statsModal.innerHTML = `
+    <div class = "stats-container">
+    <h2>${player.first_name} ${player.last_name}</h2>
+    <p>Position: ${player.position}</p>
+    <p>Team: ${player.team}</p>
+    <p>Points Per Game: ${player.stats.points_per_game}</p>
+    <p>Rebounds Per Game: ${player.stats.rebound_per_game}</p>
+    <p>Assists Per Game: ${player.stats.assists_per_game}</p>
+      <p>Steals Per Game: ${player.stats.steals_per_game}</p>
+      <p>Blocks Per Game: ${player.stats.blocks_per_game}</p>
+      <button id="close-stats">Close</button>
+    </div>
+  `;
+
+  document.body.appendChild(statsModal);
+
+  
 const addComment = (commentText) => {
     fetch('http://localhost:3000/comments', {
       method: 'POST',
