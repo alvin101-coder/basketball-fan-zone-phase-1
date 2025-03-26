@@ -104,7 +104,14 @@
       "team": "Bucks",
       "position": "Forward",
       "Jersey_number": 9,
-      "image": "assets/Bobby Portis.jpg"
+      "image": "assets/Bobby Portis.jpg",
+      "stats": {
+        "points_per_game": 13.3,
+        "rebounds_per_game": 9.1,
+        "assists_per_game": 1.8,
+        "steals_per_game": 0.6,
+        "blocks_per_game": 0.4
+      }
     }
   ],
   "comments": []
