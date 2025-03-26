@@ -72,7 +72,14 @@
       "team": "Bucks",
       "position": "Guard",
       "Jersey_number": 0,
-      "image": "assets/Damian Lillard.jpg"
+      "image": "assets/Damian Lillard.jpg",
+      "stats": {
+        "points_per_game": 32.2,
+        "rebounds_per_game": 4.8,
+        "assists_per_game": 7.5,
+        "steals_per_game": 0.9,
+        "blocks_per_game": 0.3
+      }
     },
     {
       "id": "6",
