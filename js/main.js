@@ -7,6 +7,7 @@ const fetchPlayers = () => {
 
         displayPlayers(celticsPlayers, 'celtics-players');
         displayPlayers(bucksPlayers, 'bucks-players');
+        addClickEventToPlayerCards(players);
     })
     .catch((error) => console.error('Error fetching players:', error));
 };
@@ -28,7 +29,6 @@ const displayPlayers = (players, containerId) => {
     });
 };
 
-// Handle adding comments
 const addComment = (commentText) => {
     fetch('http://localhost:3000/comments', {
       method: 'POST',
@@ -40,7 +40,6 @@ const addComment = (commentText) => {
       .catch(error => console.error('Error adding comment:', error));
   };
   
-  // Display comments
   const displayComment = (comment) => {
     const commentList = document.getElementById('comment-list');
     const commentItem = document.createElement('li');
@@ -48,14 +47,12 @@ const addComment = (commentText) => {
     commentList.appendChild(commentItem);
   };
   
-  // Handle comment form submission
   const commentForm = document.getElementById('comment-form');
   commentForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const commentInput = document.getElementById('comment-input');
     addComment(commentInput.value);
-    commentInput.value = ''; // Clear input
+    commentInput.value = ''; 
   });
   
-  // Fetch players on page load
   fetchPlayers();
