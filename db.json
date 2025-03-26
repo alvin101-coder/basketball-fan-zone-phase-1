@@ -23,8 +23,15 @@
       "team": "Celtics",
       "position": "Guard",
       "Jersey_number": 7,
-      "image": "assets/Jaylen Brown.jpeg"
-      
+      "image": "assets/Jaylen Brown.jpeg",
+      "stats": {
+        "points_per_game": 26.7,
+        "rebounds_per_game": 6.8,
+        "assists_per_game": 3.4,
+        "steals_per_game": 1.2,
+        "blocks_per_game": 0.4
+
+      }
     },
     {
       "id": "3",
