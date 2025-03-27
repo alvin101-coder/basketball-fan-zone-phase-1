@@ -67,21 +67,44 @@ const addClickEventToPlayerCards = (players) => {
   };
 
 const addComment = (commentText) => {
+    if (!commentText.trim()){
+        alert('Please enter a valid comment!');
+        return;
+    }
+
     fetch('http://localhost:3000/comments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: commentText })
     })
       .then(response => response.json())
-      .then(newComment => displayComment(newComment))
+      .then(newComment => {
+        console.log('New comment added:', newComment);
+        displayComment(newComment);
+    })
       .catch(error => console.error('Error adding comment:', error));
   };
   
   const displayComment = (comment) => {
+    if (!comment.text || !comment.text.trim()){
+        console.error('Skipped invalid comment:', comment);
+        return;
+    }
+
     const commentList = document.getElementById('comment-list');
     const commentItem = document.createElement('li');
     commentItem.textContent = comment.text;
     commentList.appendChild(commentItem);
+  };
+
+  const fetchComments = ()=> {
+    fetch('http://localhost:3000/comments')
+    .then(response => response.json())
+    .then(comments => {
+        console.log('Fetched comments:', comments);
+        comments.forEach(comment => displayComment(comment));
+    })
+    .catch(error => console.error('Error fetching comments:', error));
   };
   
   const commentForm = document.getElementById('comment-form');
@@ -93,3 +116,4 @@ const addComment = (commentText) => {
   });
   
   fetchPlayers();
+  fetchComments();
