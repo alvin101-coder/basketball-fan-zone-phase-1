@@ -33,6 +33,10 @@ const displayPlayers = (players, containerId) => {
 const displayPlayerStats = (player) => {
     const statsModal = document.createElement('div');
     statsModal.className = 'player-stats-modal';
+    statsModal.style.backgroundImage = `url($player.image)`;
+    statsModal.style.backgroundSize = 'cover';
+    statsModal.style.backgroundPosition = 'center';
+
     statsModal.innerHTML = `
     <div class = "stats-container">
     <h2>${player.first_name} ${player.last_name}</h2>
@@ -80,7 +84,8 @@ const addComment = (commentText) => {
       .then(response => response.json())
       .then(newComment => {
         console.log('New comment added:', newComment);
-        displayComment(newComment);
+        // displayComment(newComment);
+        fetchComments();
     })
       .catch(error => console.error('Error adding comment:', error));
   };
@@ -93,15 +98,45 @@ const addComment = (commentText) => {
 
     const commentList = document.getElementById('comment-list');
     const commentItem = document.createElement('li');
+
+    const commentText = document.createElement('p');
     commentText.textContent = comment.text;
+    commentItem.appendChild(commentText);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = ' Delete';
+    deleteButton.style.marginLeft = '10px';
+    deleteButton.style.backgroundColor = '#ff4d4d';
+    deleteButton.style.color = 'white';
+    deleteButton.style.border = 'none';
+    deleteButton.style.padding = '5px 10px';
+    deleteButton.style.borderRadius = '5px';
+    deleteButton.style.cursor = 'pointer';
+
+    deleteButton.addEventListener('click', () => deleteComment(comment.id, commentItem));
+    commentItem.appendChild(deleteButton);
+
     commentList.appendChild(commentItem);
   };
 
-  const fetchComments = ()=> {
+  const deleteComment = (commentId, commentItem) => {
+    fetch(`http://localhost:3000/comment/${commentId}`,{
+        method: 'DELETE',
+    })
+    .then(() => {
+        commentItem.remove();
+    })
+    .catch(error => console.error('Error deleting comment:', error));
+  };
+
+  const fetchComments = () => {
     fetch('http://localhost:3000/comments')
     .then(response => response.json())
     .then(comments => {
         console.log('Fetched comments:', comments);
+        const commentList = document.getElementById('comment-list');
+        commentList.innerHTML = '';
+
         comments.forEach(comment => displayComment(comment));
     })
     .catch(error => console.error('Error fetching comments:', error));
