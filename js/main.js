@@ -19,6 +19,7 @@ const displayPlayers = (players, containerId) => {
     players.forEach(player => {
         const playerCard = document.createElement('div');
         playerCard.className = 'player-card';
+        playerCard.id = `player-${player.id}`;
         playerCard.innerHTML = `
         <img src="${player.image}" alt="${player.first_name} ${player.last_name}" class="player-image">
         <h3>${player.first_name} ${player.last_name}</h3>
@@ -38,7 +39,7 @@ const displayPlayerStats = (player) => {
     <p>Position: ${player.position}</p>
     <p>Team: ${player.team}</p>
     <p>Points Per Game: ${player.stats.points_per_game}</p>
-    <p>Rebounds Per Game: ${player.stats.rebound_per_game}</p>
+    <p>Rebounds Per Game: ${player.stats.rebounds_per_game}</p>
     <p>Assists Per Game: ${player.stats.assists_per_game}</p>
       <p>Steals Per Game: ${player.stats.steals_per_game}</p>
       <p>Blocks Per Game: ${player.stats.blocks_per_game}</p>
@@ -57,7 +58,11 @@ const displayPlayerStats = (player) => {
 const addClickEventToPlayerCards = (players) => {
     players.forEach(player => {
       const playerCard = document.getElementById(`player-${player.id}`);
-      playerCard.addEventListener('click', () => displayPlayerStats(player));
+      if (playerCard) {
+        playerCard.addEventListener('click', () => displayPlayerStats(player));
+      } else {
+        console.error (`Player card for ${player.first_name} ${player.last_name} not found.`);
+      }
     });
   };
 
