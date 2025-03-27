@@ -93,7 +93,7 @@ const addComment = (commentText) => {
 
     const commentList = document.getElementById('comment-list');
     const commentItem = document.createElement('li');
-    commentItem.textContent = comment.text;
+    commentText.textContent = comment.text;
     commentList.appendChild(commentItem);
   };
 

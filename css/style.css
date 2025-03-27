@@ -194,3 +194,20 @@ footer a {
 footer a:hover {
     color: #ffd700;
 }
+
+#comment-list li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+#comment-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 5px;
+    border: 1px solid hsl(0, 66%, 25%);
+    border-radius: 5px;
+}
