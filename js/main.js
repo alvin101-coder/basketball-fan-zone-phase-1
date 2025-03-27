@@ -103,6 +103,19 @@ const addComment = (commentText) => {
     commentText.textContent = comment.text;
     commentItem.appendChild(commentText);
 
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    editButton.style.marginLeft = '10px';
+    editButton.style.backgroundColor = '#ffa500';
+    editButton.style.color = 'white';
+    editButton.style.border = 'none';
+    editButton.style.padding = '5px 10px';
+    editButton.style.borderRadius = '5px';
+    editButton.style.cursor = 'pointer';
+
+    editButton.addEventListener('click', () => editComment(comment, commentItem));
+    commentItem.appendChild(editButton);
+
     const deleteButton = document.createElement('button');
     deleteButton.textContent = ' Delete';
     deleteButton.style.marginLeft = '10px';
@@ -117,6 +130,47 @@ const addComment = (commentText) => {
     commentItem.appendChild(deleteButton);
 
     commentList.appendChild(commentItem);
+  };
+
+  const editComment = (comment, commentItem) => {
+    const editInput = document.createElement('input');
+    editInput.type = 'text';
+    editInput.value = comment.text;
+    editInput.style.marginRight = '10px';
+  
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Save';
+    saveButton.style.backgroundColor = '#4CAF50';
+    saveButton.style.color = 'white';
+    saveButton.style.border = 'none';
+    saveButton.style.padding = '5px 10px';
+    saveButton.style.borderRadius = '5px';
+    saveButton.style.cursor = 'pointer';
+  
+    saveButton.addEventListener('click', () => {
+      const updatedText = editInput.value.trim();
+      if (!updatedText) {
+        alert('Please enter a valid comment!');
+        return;
+      }
+  
+      fetch(`http://localhost:3000/comments/${comment.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: updatedText })
+      })
+        .then(response => response.json())
+        .then(updatedComment => {
+  
+          commentItem.innerHTML = ''; 
+          displayComment(updatedComment); 
+        })
+        .catch(error => console.error('Error updating comment:', error));
+    });
+  
+    commentItem.innerHTML = '';
+    commentItem.appendChild(editInput);
+    commentItem.appendChild(saveButton);
   };
 
   const deleteComment = (commentId, commentItem) => {
