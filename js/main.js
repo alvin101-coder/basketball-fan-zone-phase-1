@@ -29,18 +29,22 @@ teamLogos.forEach(logo => {
 
     const displayTeamDetails = (teamName) => {
         const teamDetailsDiv = document.getElementById(`${teamName}-details`);
+        if (teamDetailsDiv.classList.contains('active')){
+            teamDetailsDiv.classList.remove('active');
+            teamDetailsDiv.innerHTML = '';
+        } else {
+        teamDetailsDiv.classList.add('active');
         teamDetailsDiv.innerHTML = `
         <h2>${teamName}</h2>
         <p>${teamHistory[teamName]}</p>
         <button id="player-stats-button">View Player Stats</button>
         `;
 
-        teamDetailsDiv.classList.add('active');
-
         const playerStatsButton = document.getElementById('player-stats-button');
         playerStatsButton.addEventListener('click', () => {
             document.querySelector('#players').scrollIntoView({ behavior: 'smooth' });
         });
+     }
     };
 
 const displayPlayers = (players, containerId) => {
