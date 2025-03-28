@@ -1,4 +1,4 @@
-# Basketball Fan Zone 🏀
+# Basketball Fan Zone 
 
 ## **Project Description**
 Welcome to the Basketball Fan Zone—a dynamic and interactive website where users can:
