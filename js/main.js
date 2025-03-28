@@ -35,6 +35,8 @@ teamLogos.forEach(logo => {
         <button id="player-stats-button">View Player Stats</button>
         `;
 
+        teamDetailsDiv.classList.add('active');
+
         const playerStatsButton = document.getElementById('player-stats-button');
         playerStatsButton.addEventListener('click', () => {
             document.querySelector('#players').scrollIntoView({ behavior: 'smooth' });
