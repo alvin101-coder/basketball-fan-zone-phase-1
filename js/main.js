@@ -1,5 +1,5 @@
 const fetchPlayers = () => {
-    fetch('http://localhost:3000/players')
+    fetch('https://basketball-fan-zone-backend.vercel.app/players')
     .then((response) => response.json())
     .then((players) => {
         const celticsPlayers = players.filter(player => player.team === 'Celtics');
@@ -111,7 +111,7 @@ const addComment = (commentText) => {
         return;
     }
 
-    fetch('http://localhost:3000/comments', {
+    fetch('https://basketball-fan-zone-backend.vercel.app/comments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: commentText })
@@ -119,7 +119,6 @@ const addComment = (commentText) => {
       .then(response => response.json())
       .then(newComment => {
         console.log('New comment added:', newComment);
-        // displayComment(newComment);
         fetchComments();
     })
       .catch(error => console.error('Error adding comment:', error));
@@ -189,7 +188,7 @@ const addComment = (commentText) => {
         return;
       }
   
-      fetch(`http://localhost:3000/comments/${comment.id}`, {
+      fetch(`https://basketball-fan-zone-backend.vercel.app/comments/${comment.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: updatedText })
@@ -209,7 +208,7 @@ const addComment = (commentText) => {
   };
 
   const deleteComment = (commentId, commentItem) => {
-    fetch(`http://localhost:3000/comment/${commentId}`,{
+    fetch(`https://basketball-fan-zone-backend.vercel.app/comments/${commentId}`,{
         method: 'DELETE',
     })
     .then(() => {
@@ -219,7 +218,7 @@ const addComment = (commentText) => {
   };
 
   const fetchComments = () => {
-    fetch('http://localhost:3000/comments')
+    fetch('https://basketball-fan-zone-backend.vercel.app/comments')
     .then(response => response.json())
     .then(comments => {
         console.log('Fetched comments:', comments);
