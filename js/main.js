@@ -218,7 +218,7 @@ const addComment = (commentText) => {
   };
 
   const fetchComments = () => {
-    fetch('https://basketball-fan-zone-backend.vercel.app/comments')
+    fetch('https://basketball-fan-zone-backend.vercel.app/commentsjg')
     .then(response => response.json())
     .then(comments => {
         console.log('Fetched comments:', comments);
