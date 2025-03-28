@@ -12,6 +12,35 @@ const fetchPlayers = () => {
     .catch((error) => console.error('Error fetching players:', error));
 };
 
+const teamHistory = {
+    Celtics: "The Boston Celtics are one of the most successful franchises in NBA history, boasting 17 championships.",
+    Bucks: "The Milwaaukee Bucks are a powerhouse team, led by Giannis Antetokoumpo and known for their 2021 NBA chanpionship.",
+    Lakers: "The Los Angeles Lakers are a legendary team with stars like Kobe Bryant, LeBron James, and Shaquille O'Neal.",
+};
+
+const teamLogos = document.querySelectorAll('.team-logo');
+
+teamLogos.forEach(logo => {
+    logo.addEventListener('click', () => {
+            const teamName = logo.dataset.team;
+            displayTeamDetails(teamName);
+        });
+    });
+
+    const displayTeamDetails = (teamName) => {
+        const teamDetailsDiv = document.getElementById(`${teamName}-details`);
+        teamDetailsDiv.innerHTML = `
+        <h2>${teamName}</h2>
+        <p>${teamHistory[teamName]}</p>
+        <button id="player-stats-button">View Player Stats</button>
+        `;
+
+        const playerStatsButton = document.getElementById('player-stats-button');
+        playerStatsButton.addEventListener('click', () => {
+            document.querySelector('#players').scrollIntoView({ behavior: 'smooth' });
+        });
+    };
+
 const displayPlayers = (players, containerId) => {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
